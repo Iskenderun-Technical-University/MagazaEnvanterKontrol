@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -43,13 +43,13 @@
             this.kryptonTextBox6 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonTextBox5 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label2 = new System.Windows.Forms.Label();
             this.kryptonTextBox3 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonTextBox4 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -62,13 +62,12 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.linkLabel3);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.kryptonButton1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.kryptonTextBox2);
             this.panel1.Controls.Add(this.kryptonTextBox1);
-            this.panel1.Location = new System.Drawing.Point(719, 56);
+            this.panel1.Location = new System.Drawing.Point(650, 56);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(705, 803);
             this.panel1.TabIndex = 0;
@@ -86,6 +85,7 @@
             this.linkLabel3.Text = "Hesap Oluştur";
             this.linkLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel3.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(206)))), ((int)(((byte)(250)))));
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // pictureBox2
             // 
@@ -96,19 +96,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(206)))), ((int)(((byte)(250)))));
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(206)))), ((int)(((byte)(250)))));
-            this.linkLabel1.Location = new System.Drawing.Point(131, 803);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(479, 33);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Hesap Oluştur";
-            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // kryptonButton1
             // 
@@ -205,12 +192,11 @@
             this.panel2.Controls.Add(this.kryptonTextBox6);
             this.panel2.Controls.Add(this.kryptonTextBox5);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.linkLabel2);
             this.panel2.Controls.Add(this.kryptonButton2);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.kryptonTextBox3);
             this.panel2.Controls.Add(this.kryptonTextBox4);
-            this.panel2.Location = new System.Drawing.Point(18, 53);
+            this.panel2.Location = new System.Drawing.Point(1427, 56);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(705, 803);
             this.panel2.TabIndex = 8;
@@ -220,7 +206,7 @@
             this.linkLabel4.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(206)))), ((int)(((byte)(250)))));
             this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(206)))), ((int)(((byte)(250)))));
-            this.linkLabel4.Location = new System.Drawing.Point(131, 749);
+            this.linkLabel4.Location = new System.Drawing.Point(128, 751);
             this.linkLabel4.Name = "linkLabel4";
             this.linkLabel4.Size = new System.Drawing.Size(479, 24);
             this.linkLabel4.TabIndex = 9;
@@ -228,6 +214,7 @@
             this.linkLabel4.Text = "Giriş Yap";
             this.linkLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel4.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(206)))), ((int)(((byte)(250)))));
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // label3
             // 
@@ -259,6 +246,8 @@
             this.kryptonTextBox6.StateCommon.Content.Padding = new System.Windows.Forms.Padding(5);
             this.kryptonTextBox6.TabIndex = 9;
             this.kryptonTextBox6.Text = "Şifre";
+            this.kryptonTextBox6.Enter += new System.EventHandler(this.kryptonTextBox6_Enter);
+            this.kryptonTextBox6.Leave += new System.EventHandler(this.kryptonTextBox6_Leave);
             // 
             // kryptonTextBox5
             // 
@@ -291,19 +280,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(206)))), ((int)(((byte)(250)))));
-            this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(206)))), ((int)(((byte)(250)))));
-            this.linkLabel2.Location = new System.Drawing.Point(131, 803);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(479, 33);
-            this.linkLabel2.TabIndex = 6;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Hesap Oluştur";
-            this.linkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // kryptonButton2
             // 
@@ -406,14 +382,19 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(0);
@@ -437,7 +418,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -445,7 +425,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
         private System.Windows.Forms.Label label2;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox3;
@@ -455,5 +434,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox5;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.Timer timer1;
     }
 }

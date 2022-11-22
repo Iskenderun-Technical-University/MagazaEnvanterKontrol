@@ -115,5 +115,99 @@ namespace MagazaEnvanterKontrol
                 kryptonTextBox5.PasswordChar = '\0';
             }
         }
+
+        private void kryptonTextBox6_Enter(object sender, EventArgs e)
+        {
+            if (kryptonTextBox6.Text == "Şifre")
+            {
+                kryptonTextBox6.Text = "";
+                kryptonTextBox6.StateCommon.Content.Color1 = Color.WhiteSmoke;
+                kryptonTextBox6.PasswordChar = '*';
+            }
+        }
+
+        //1427;719
+
+        string panel = "Login";
+        string panelState = "";
+
+        int x = 0;
+        private void kryptonTextBox6_Leave(object sender, EventArgs e)
+        {
+            if (kryptonTextBox6.Text == "")
+            {
+                kryptonTextBox6.Text = "Şifre";
+                kryptonTextBox6.StateCommon.Content.Color1 = Color.FromArgb(64, 64, 64);
+                kryptonTextBox6.PasswordChar = '\0';
+            }
+        }
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            x = 650;
+            panel = "Login";
+            panelState = "LoginMoving";
+            timer1.Start();
+        }
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            panel = "Register";
+            x = 650;
+            panelState = "RegisterMoving";
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (panel == "Login")
+            {
+                if (x < 1427 && panelState == "LoginMoving")
+                {
+                    x += 40;
+                    panel1.Left = x; 
+                }
+                else
+                {
+                    panel1.Left = 1427;
+                    panelState = "RegisterMoving";
+                    if (x > 650 && panelState == "RegisterMoving")
+                    {
+                        x -= 40;
+                        panel2.Left = x;
+                    }
+                    else
+                    {
+                        panel2.Left = 650;
+                        panelState = "Done";
+                        timer1.Stop();
+                    }
+                }
+            }
+            else
+            {
+                if (x < 1427 && panelState == "RegisterMoving")
+                {
+                    x += 40;
+                    panel2.Left = x;
+                }
+                else
+                {
+                    panel2.Left = 1427;
+                    panelState = "LoginMoving";
+                    if (x > 650 && panelState == "LoginMoving")
+                    {
+                        x -= 40;
+                        panel1.Left = x;
+                    }
+                    else
+                    {
+                        panel1.Left = 650;
+                        panelState = "Done";
+                        timer1.Stop();
+                    }
+                }
+            }
+        }
+
+
     }
 }
